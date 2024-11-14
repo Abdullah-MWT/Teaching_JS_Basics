@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing Arrray/Objects Elements Through .map()</title>
+</head>
+<body>
+
+    <h1 id="usersInfo"></h1>
+    <button onclick="getfullName()">Get FullName</button>
+     <h4 id="show"></h4>
+    <script>
+        const allUsers = [
+            {
+                Name: 'Abdullah',
+                Title: 'Khan',
+                Designation: 'Web-Developer',
+                Email: 'abdullah123@gmail.com'
+            },
+            {
+                Name: 'Zaryab',
+                Title: 'Khan',
+                Designation: 'web-Designer',
+                Email: 'zaryab123@gmail.com'
+            },
+            {
+                Name: 'Sufyan',
+                Title: 'Khan',
+                Designation: 'Software-Developer',
+                Email: 'sufyan123@gmail.com'
+            },
+            {
+                Name: 'Zulkiful',
+                Title: 'Khan',
+                Designation: 'App-Developer',
+                Email: 'zulkiful123@gmail.com'
+            },
+        ]
+
+        const FullName = [];
+
+        const allUsersData =  allUsers.map((singleItem) => singleItem.Name);
+        document.getElementById('usersInfo').innerHTML = allUsersData
+        console.log(allUsersData);
+
+        // Now Displaying the same Data Through For Each Loop
+          
+        function getfullName() {
+            allUsers.forEach(function(singleValue) {
+              FullName.push(`${singleValue.Name} ${singleValue.Title}`)
+
+            })
+
+        document.getElementById('show').innerHTML = FullName
+        }
+
+        // Now Understanding .filter In JS
+       const productCatogry = [
+        {
+            productName: 'Diamond Ring',
+            Catogery: 'Ring'
+        },
+        {
+            productName: 'Diamond Necklace',
+            Catogery: 'Necklace'
+        },
+        {
+            productName: 'Simple Ring',
+            Catogery: 'Ring'
+        },
+        {
+            productName: 'Golden Braclet',
+            Catogery: 'Braclet'
+        },
+        {
+            productName: 'Rose Ring',
+            Catogery: 'Ring'
+        },
+       ]
+
+       const filteredCategory =  productCatogry.filter((singleCategory) => {
+        if (singleCategory.Catogery == 'Necklace') {
+            console.log(singleCategory);
+            
+        }
+       })
+      
+       console.log(filteredCategory);
+       
+
+        
+    </script>
+</body>
+</html>

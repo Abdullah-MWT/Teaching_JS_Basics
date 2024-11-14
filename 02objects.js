@@ -58,7 +58,7 @@ const obj6 = [
 console.log(obj6[1].Name); // This is how we would access values inside objects in Array
 
 
-// Now what id we would want to access just the values or keys of any object
+// Now what if we would want to access just the values or keys of any object
 console.log(Object.keys(gameChanger));
 console.log(Object.values(gameChanger));
 

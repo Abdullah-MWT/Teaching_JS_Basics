@@ -24,14 +24,13 @@ for (let number = 1; number < 20; number++) {
     
 // }
 
-// Now with the help of nesting loops try to print 5 tables from 2 to 7
+// Now with the help of nesting loops try to print 5 tables from 1 to 7
 
 for (let a = 1; a < 5; a++) {
     console.log(`Table of ${a} is`);
     for (let b = 1; b <= 10; b++) {
         console.log(`${a} X ${b} = `, a*b);
-        
-        
+         
     }
     
 }

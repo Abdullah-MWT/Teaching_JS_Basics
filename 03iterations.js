@@ -26,3 +26,14 @@ for (const objElements of studentsData) {
     console.log(`The square of ${numSquare} is:`, numSquare* numSquare);
     
  }
+
+ // Taking both Object Keys and Values in a single for of loop
+const myObj5 = {
+    'Name': 'Abdullah',
+    'Designation': 'Front-End Developer'
+}
+
+for (const [key, value] of myObj5) {
+    console.log(key, ':-', value);
+    
+}

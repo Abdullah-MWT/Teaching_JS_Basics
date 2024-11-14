@@ -20,7 +20,19 @@ const myInfoModifiedObject = myInfo.map(addProperty => ({
 
 console.log(myInfoModifiedObject);
 
-// Example #3 performed on the above myInffo Array
+// Example #3
+
+const mainArr = [[1,2,3]];
+const modifiedmainArr = mainArr.map(putArr => ([
+    ...putArr,
+    [4,5,6],
+    [7,8,9]
+]))
+
+console.log(modifiedmainArr);
+
+
+// Example #4 performed on the above myInffo Array
 
 const myArrays = [[1,2,3],[4,5,6]]
 const myInfoModifiedArrays = myArrays.map(addArray => ([
@@ -29,5 +41,7 @@ const myInfoModifiedArrays = myArrays.map(addArray => ([
 ]))
 
 console.log(myInfoModifiedArrays);
+
+
 
 
