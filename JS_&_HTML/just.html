@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>hfduhfj</h1>
+    <script>
+  // Handling API's through different ways
+
+        // 1. Fetch API
+        // 2. async/await
+        // 3. Axios
+        // 4. XMLHttpRequest
+
+        // 1. Fetch API
+        fetch('https://api.github.com/users/hiteshchoudhary')
+        .then(response => response.json())
+        .then(data => console.log('This is Handled through Fetch API',data))
+        .catch(error => console.error('OOps!',error))
+        
+
+
+        // 2. Async/Await API
+        async function getAPIdata(){
+          try{
+               let response = await fetch('https://api.github.com/users/hiteshchoudhary');
+               let data = await response.json();
+               console.log('This is Handled through async/await API',data);
+               
+          }
+          catch(error){
+               console.error('OOps!', error)
+          }
+        }
+
+        getAPIdata()
+
+
+        // 3. axios API
+        axios.get('https://api.github.com/users/hiteshchoudhary')
+        .then(response => console.log('This is Handled through Axios API', response.data))
+        .catch(error => console.error('OOps!', error))
+        
+
+        // 4. XMLHttpRequest API
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/users/hiteshchoudhary');
+        xhr.onload = () => console.log(JSON.parse(xhr.responseText));
+        xhr.onerror = () => console.error('OOps!', xhr.status);
+        xhr.send();
+        
+        
+
+    </script>
+</body>
+</html>

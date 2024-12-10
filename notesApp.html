@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nottes-App storing Notes on Local Storage</title>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="btn1">Add Note</button>
+    <div class="container"></div>
+     <button class="btn2">Delete Note</button>
+    <script>
+    const saveNoteToLocalStorage = (note) => {
+       let notes;
+
+        try{
+            notes = JSON.parse(localStorage.getItem('Note')) || [];
+        } catch(err) {
+            notes = [];
+            console.log('Error Occured', err);
+            
+        }
+           
+           notes.push(note);
+           localStorage.setItem('Note', JSON.stringify(notes))
+    }
+
+     
+    const createListOfNotes = () => {
+        const container = document.querySelector('.container');
+        container.innerHTML = '';
+
+        let notes = JSON.parse(localStorage.getItem('Note') )|| [];
+        const ul = document.createElement('ul');
+
+        notes.forEach((note) => {
+            const li = document.createElement('li');
+            li.textContent = note;
+            ul.append(li);
+        })
+
+        container.appendChild(ul)
+    }
+
+    const deleteListOfNotes = () => {
+        const container = document.querySelector('.container');
+        let ul = container.querySelector('ul');
+         const lastul = ul.lastElementChild
+        if (lastul && lastul.tagName === 'LI' ) {
+            lastul.remove()
+        }
+        
+    }
+
+    document.querySelector('.btn1').addEventListener('click', () => {
+        let note = prompt('Write Your Note Here');
+        saveNoteToLocalStorage(note);
+        createListOfNotes();
+    })
+
+    document.querySelector('.btn2').addEventListener('click', () => {
+      deleteListOfNotes()
+    })
+    </script>
+</body>
+</html>

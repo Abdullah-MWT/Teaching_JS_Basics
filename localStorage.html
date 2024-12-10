@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+
+    <script>
+        // Simple Use
+        if(localStorage.getItem('Name')){
+              a = localStorage.getItem('Name');
+              document.write('Welcome!' + ' ' + a)
+        } else{
+            let myName = 'Abdullah';
+        localStorage.setItem('Name', myName)
+        document.write('Hello'+ ' ' + myName)
+        }
+
+        // Storing Objects on Local Storage
+         
+        const myObj = {
+          Name: 'Abdullah',
+          Class: '12th',
+          Murshid: 'Imran Khan'
+        }
+
+       const modifiedmyObj =  JSON.stringify(myObj);
+       console.log(modifiedmyObj);
+       
+       localStorage.setItem('Student', JSON.stringify(myObj) );
+       stored = localStorage.getItem('Student');
+       console.log(stored);
+
+       const remodifiedObj = JSON.parse(localStorage.getItem('Student'));
+       console.log(remodifiedObj);
+       
+       
+        
+    </script>
+</body>
+</html>
